@@ -1,11 +1,12 @@
 # Testing <!-- omit in toc -->
 
-- [Getting started-](#getting-started-)
+- [Getting started](#getting-started)
   - [Dependencies (Windows)](#dependencies-windows)
 - [Resources](#resources)
+  - [Setting up SSH for Github](#setting-up-ssh-for-github)
 - [Visual Studio Code plugins](#visual-studio-code-plugins)
 
-## Getting started-
+## Getting started
 
 After the dependencies are installed, run:
 
@@ -46,14 +47,27 @@ In this order:
    .\<name-of-install-file>
    ```
 
-- [Git bash](https://git-scm.com/download/win). Please follow the installation instructions in the [Ways of Working](https://github.com/wc-phdc-hia/ways-of-working/blob/main/src/standards/development.md#windows) repository. There are a couple of gotchas here.
+- [Git bash](https://git-scm.com/download/win): Please follow the installation instructions in the [Ways of Working](https://github.com/wc-phdc-hia/ways-of-working/blob/main/src/standards/development.md#windows) repository. There are a couple of gotchas here.
 - Search for PowerShell and "Run as Administrator" and install chocolatey [chocolatey](https://chocolatey.org/install) if it hasn't been installed yet (if all has gone well with the `node` installation it should be installed).
 - Use chocolatey to install [make](https://community.chocolatey.org/packages/make)
-
+- [Set up an SSH key](#setting-up-ssh-for-github).
+- Clone the repo:
+  
+  ```sh
+  git clone git@github.com:wc-phdc-hia/testing.git
+  ```
+  
 ## Resources
 
 [Playwright](https://playwright.dev/docs/intro)
 
+### Setting up SSH for Github
+
+Setting up an SSH key:
+
+- [Generating an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Adding an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+  
 ## Visual Studio Code plugins
 
 Install the following plugins, either from the plugin panel on the activity bar (by default on the left):

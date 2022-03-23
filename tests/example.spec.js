@@ -405,7 +405,7 @@ async function createDefaultTodos(page) {
  */
 async function checkNumberOfTodosInLocalStorage(page, expected) {
   return page.waitForFunction(
-    (e) => JSON.parse(localStorage["react-todos"]).length === e,
+    (e) => JSON.parse(localStorage["reactos"]).length === e,
     expected
   );
 }

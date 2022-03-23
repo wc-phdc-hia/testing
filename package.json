@@ -1,0 +1,35 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "codegen": "playwright codegen wikipedia.org",
+    "test": "playwright test",
+    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wc-phdc-hia/testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wc-phdc-hia/testing/issues"
+  },
+  "homepage": "https://github.com/wc-phdc-hia/testing#readme",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@playwright/test": "^1.20.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "playwright": "^1.20.0",
+    "prettier": "^2.6.0"
+  }
+}

@@ -1,0 +1,16 @@
+name: Lint
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+      - development
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    container:
+      image: node:16.13-alpine
+    steps:
+      - uses: actions/checkout@master
+      - run: npm ci
+      - run: npm run lint:eslint

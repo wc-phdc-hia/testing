@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "codegen": "playwright codegen wikipedia.org",
+    "codegen": "playwright codegen localhost:5380/",
     "test": "playwright test",
+    "test-h": "playwright test --headed",
     "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },

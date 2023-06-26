@@ -104,3 +104,6 @@ dist
 .tern-port
 test-results/
 playwright-report/
+
+# Authentication state files
+playwright/.auth/

@@ -27,8 +27,8 @@ export const test = baseTest.extend({}, { workerStorageState: '' });({
       // Perform authentication steps with your unique details.
       await page.goto('http://localhost:5380/');
       await page.locator('text=Log In').click();
-      await page.fill('input[name="user"]', 'user');
-      await page.fill('input[name="password"]', 'password');
+      await page.fill('input[name="user"]', 'default');
+      await page.fill('input[name="password"]', 'SunShinE101!!##');
       await page.locator('text=Sign in to SPV').click();
       await page.locator('text=Accept and Continue').click();
       await Promise.all([

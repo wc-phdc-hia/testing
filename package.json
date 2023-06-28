@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "anything": "ls",
     "codegen": "playwright codegen localhost:5380/",
-    "test": "playwright test",
-    "test-h": "playwright test --headed",
+    "test": "env-cmd playwright test",
+    "test-h": "env-cmd playwright test --headed",
     "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
@@ -24,13 +25,17 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "@playwright/test": "^1.20.0",
+    "@playwright/test": "^1.35.1",
     "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "playwright": "^1.20.0",
+    "playwright": "^1.35.1",
     "prettier": "^2.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }

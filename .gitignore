@@ -107,3 +107,7 @@ playwright-report/
 
 # Authentication state files
 playwright/.auth/
+
+.env
+
+.vscode

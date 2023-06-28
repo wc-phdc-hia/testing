@@ -5,14 +5,14 @@ const { devices } = require("@playwright/test");
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+require('dotenv').config();
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  testDir: "./tests",
+  
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -44,25 +44,36 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      testMatch: '**/*.setup.mjs',
+    },
+    {
       name: "chromium",
+      testDir: "./tests",
       use: {
         ...devices["Desktop Chrome"],
+        storageState: 'playwright/.auth/user.json',
       },
+       dependencies: ['setup'],
     },
 
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-      },
-    },
+    // {
+    //   name: "firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //     storageState: 'playwright/.auth/user.json',
+    //   },
+    //    dependencies: ['setup'],
+    // },
 
-    {
-      name: "webkit",
-      use: {
-        ...devices["Desktop Safari"],
-      },
-    },
+    // {
+    //   name: "webkit",
+    //   use: {
+    //     ...devices["Desktop Safari"],
+    //     storageState: 'playwright/.auth/user.json',
+    //   },
+    //    dependencies: ['setup'],
+    // },
 
     /* Test against mobile viewports. */
     // {

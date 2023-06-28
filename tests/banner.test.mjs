@@ -1,24 +1,19 @@
 import { test } from '@playwright/test';
 
 test('authentication test', async ({ page }) => {
-  await page.goto('http://localhost:5380/Search');
-  await page.pause();
-//   await page.click('img[alt="WCDoH"]');
+    await page.goto('http://localhost:5380/Search');
+    await page.pause();
+    await page.getByRole('img').click();
+    await page.getByText('Single Patient Viewer', { exact: true }).click();
+    await page.getByText('Demo', { exact: true }).click();
+    await page.getByPlaceholder('Search Folder').click();
+    await page.locator('.fa-2x').click();
+    await page.getByText('Default User').click();
+    await page.locator('.fa-2x').click();
+    await page.getByRole('button', { name: 'Logout' }).click();
+    await page.pause();
 
-//   const element = await page.locator('#kt_header_menu li >> text=Single Patient Viewer');
-
-//   await page.click('#kt_header_menu span');
-//   await page.click('#kt_header_menu span');
-
-//   await page.click('input[placeholder="Search Folder"]');
-//   await page.click('.fa-2x');
-
-//   await page.click('text=Default User');
-//   await page.click('.fa-2x');
-
-//   await page.click('button >> text=Logout');
-
-//   // ---------------------
-//   await page.context().close();
-//   await page.context().browser().close();
+    // ---------------------
+    await page.context().close();
+    await page.context().browser().close();
 });

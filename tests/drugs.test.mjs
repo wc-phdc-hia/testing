@@ -11,6 +11,7 @@ test('drugs test', async ({ page }) => {
     await page.locator('#kt_aside_toggler').click();
     await page.getByRole('link', { name: ' Drugs' }).click();
     await page.locator('#filter-on').click();
+    await page.waitForTimeout(5000);
     await page.getByRole('treeitem', { name: 'D - DERMATOLOGICALS' }).getByRole('checkbox').click();
     await page.getByRole('link', { name: 'Filter' }).click();
     await page.locator('#filter-off').click();

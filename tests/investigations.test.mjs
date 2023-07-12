@@ -1,2 +1,2 @@
 // Investigations page
-    // no data to display
+    // no data to display yet

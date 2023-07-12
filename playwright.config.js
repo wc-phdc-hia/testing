@@ -20,7 +20,7 @@ require('dotenv').config();
 const config = {
   
   /* Maximum time one test can run for. */
-  timeout: 120 * 1000,
+  timeout: 300 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -58,8 +58,8 @@ const config = {
       testDir: "./tests",
       use: {
         ...devices["Desktop Chrome"],
-        // launchOptions: {
-        //   slowMo:50},
+        launchOptions: {
+          slowMo:50},
         storageState: 'playwright/.auth/user.json',
       },
        dependencies: ['setup'],

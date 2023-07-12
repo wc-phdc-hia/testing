@@ -26,6 +26,8 @@ test('episode page test', async () => {
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.getByRole('link', { name: 'Capture' }).click();
     await page.getByRole('button', { name: 'Datacapturer' }).click();
+    await page.waitForTimeout(5000);
+    await page.getByRole('row', { name: 'HIV positive 2023-07-03 New None, still in treatment' }).getByRole('img').click();
     await page.locator('#luEpisodeType').press('Enter');
     await page.locator('#luEpisodeType').selectOption('2');
     await page.getByRole('button', { name: 'Add' }).click();
@@ -60,15 +62,16 @@ test('encounter page test', async () => {
 test('lab results page test', async () => {
     
     //Labs page opens, capture any information
-    await page.locator('#luNewTestTypes').selectOption('20');
+    await page.locator('#luNewTestTypes').selectOption('10');
     await page.getByRole('button', { name: 'Add' }).click();
     await page.locator('#Extension287').click();
-    await page.getByRole('link', { name: '2' }).click();
+    await page.getByRole('link', { name: '2', exact: true }).click();
+    await page.locator('#Extension17').selectOption('2101');
     await page.locator('#Extension288').click();
-    await page.locator('#Extension288').click();
-    await page.locator('#Extension288').fill('45');
-    await page.locator('#Extension313').selectOption('1201');
+    await page.locator('#Extension288').fill('testing');
+    await page.locator('#Extension314').selectOption('2002');
     await page.getByRole('button', { name: 'Save test' }).click();
+    await page.waitForTimeout(5000);
     await page.getByRole('button', { name: 'Next' }).click();
 });
 
@@ -82,13 +85,14 @@ test('medication page test', async () => {
     await page.getByRole('button', { name: 'Save' }).click();
 });
 
-// test('summary page test', async () => {
+test('summary page test', async () => {
 
-//     //Summary page opens, Save
-//     await page.pause();
-//     await page.getByRole('link', { name: 'Summary' }).click();
-//     await page.getByRole('button', { name: 'Save' }).click();
-// });
+    //Summary page opens, Save
+    await page.getByRole('button', { name: 'Next' }).click();
+    await page.getByRole('button', { name: 'Next' }).click();
+    await page.getByRole('link', { name: 'Summary' }).click();
+    await page.getByRole('button', { name: 'Save' }).click();
+});
 
 test('edit mode test', async () => {
 
@@ -122,14 +126,14 @@ test('diagnosis test', async () => {
 
     //Diagnoses page opens, capture any diagnosis
     await page.getByRole('treeitem', { name: 'Episode Linked' }).locator('i').first().click();
-    await page.getByRole('link', { name: 'B20.9 HIV disease resulting in unspecified infectious or parasitic disease' }).click();
-    await page.getByRole('link', { name: 'B20.9 HIV disease resulting in unspecified infectious or parasitic disease' }).dblclick();
+    await page.locator('#A15\\.0 i.jstree-icon.jstree-checkbox').click();
     await page.getByRole('button', { name: 'Next' }).click();
 });
 
 test('medication2 test', async () => {
 
     //Medications page opens, capture any medication
+    
     await page.getByRole('link', { name: 'folic acid' }).click();
     await page.getByRole('button', { name: 'Create custom' }).click();
     await page.locator('#liDosingInstruction').selectOption('1');
@@ -160,7 +164,7 @@ test('summary2 page test', async () => {
 test('edit mode2 page test', async () => {
 
     //Edit mode and verify captured information
-    await page.getByRole('row', { name: '106362783 2023-07-04 Facility 111 ' }).getByRole('link').nth(1).click();
+    await page.getByRole('row', { name: '106362783 2023-07-12 Facility 111 ' }).getByRole('link').nth(1).click();
     await page.getByRole('button', { name: 'Prescription' }).click();
     await page.getByRole('button', { name: 'Save' }).click();
 

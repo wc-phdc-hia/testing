@@ -26,14 +26,14 @@ test('episode page test', async () => {
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.getByRole('link', { name: 'Capture' }).click();
     await page.getByRole('button', { name: 'Datacapturer' }).click();
-    await page.waitForTimeout(5000);
-    await page.getByRole('row', { name: 'HIV positive 2023-07-03 New None, still in treatment' }).getByRole('img').click();
+    const deleteDivLocator = page.locator('table tbody tr:first-child div[onclick^="gb_row_delete"]');
+    await deleteDivLocator.click();
     await page.locator('#luEpisodeType').press('Enter');
     await page.locator('#luEpisodeType').selectOption('2');
     await page.getByRole('button', { name: 'Add' }).click();
     await page.locator('#Extension247').selectOption('801');
     await page.locator('#Extension245').click();
-    await page.getByRole('link', { name: '3' }).click();
+    await page.getByRole('link', { name: '3', exact: true }).click();
     await page.locator('#Extension9').selectOption('1002');
     await page.locator('#Extension6').selectOption('201');
     await page.locator('#Extension8').selectOption('304');
@@ -49,7 +49,7 @@ test('encounter page test', async () => {
     //Encounters page opens, capture any information
     await page.locator('#Extension252').selectOption('501');
     await page.locator('#Extension251').click();
-    await page.getByRole('link', { name: '3' }).click();
+    await page.getByRole('link', {name: '3', exact: true }).click();
     await page.locator('#Extension253-input').click();
     await page.getByRole('link', { name: 'Facility 111' }).click();
     await page.getByRole('button', { name: 'Collapse' }).click();
@@ -71,7 +71,6 @@ test('lab results page test', async () => {
     await page.locator('#Extension288').fill('testing');
     await page.locator('#Extension314').selectOption('2002');
     await page.getByRole('button', { name: 'Save test' }).click();
-    await page.waitForTimeout(5000);
     await page.getByRole('button', { name: 'Next' }).click();
 });
 
@@ -123,9 +122,8 @@ test('encounter2 page test', async () => {
 });
 
 test('diagnosis test', async () => {
-
     //Diagnoses page opens, capture any diagnosis
-    await page.getByRole('treeitem', { name: 'Episode Linked' }).locator('i').first().click();
+    await page.getByRole('treeitem', { name: 'Episode Linked' }).locator('i').first().click();    
     await page.locator('#A15\\.0 i.jstree-icon.jstree-checkbox').click();
     await page.getByRole('button', { name: 'Next' }).click();
 });

@@ -98,7 +98,9 @@ test('edit mode test', async () => {
     //Edit mode and verify captured information 
     await page.locator('#kt_aside_toggler').click();
     await page.getByRole('link', { name: ' Dashboard' }).click();
-    await page.getByRole('row', { name: '106362783 2023-07-03 Facility 111 ' }).getByRole('link').nth(1).click();
+    const editLinkLocator = page.locator('a.btn[data-original-title="Edit encounter"]');
+    const firstEditLink = await editLinkLocator.first();
+    await firstEditLink.click();
     await page.getByRole('button', { name: 'Datacapturer' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
@@ -162,7 +164,9 @@ test('summary2 page test', async () => {
 test('edit mode2 page test', async () => {
 
     //Edit mode and verify captured information
-    await page.getByRole('row', { name: '106362783 2023-07-12 Facility 111 ' }).getByRole('link').nth(1).click();
+    const editLinkLocator = page.locator('a.btn[data-original-title="Edit encounter"]');
+    const firstEditLink = await editLinkLocator.first();
+    await firstEditLink.click();
     await page.getByRole('button', { name: 'Prescription' }).click();
     await page.getByRole('button', { name: 'Save' }).click();
 

@@ -10,6 +10,7 @@ test('drugs test', async ({ page }) => {
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
     await page.getByRole('link', { name: ' Drugs' }).click();
+    await page.waitForTimeout(3000);
     const elementLocator = page.locator('#filter-on');
     await elementLocator.waitFor({ state: 'visible' });
     await elementLocator.click();    

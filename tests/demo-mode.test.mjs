@@ -12,5 +12,7 @@ test('demo test', async ({ page }) => {
     await page.locator('#kt_aside_toggler').click();
     await page.getByRole('link', { name: ' Inferred Episodes' }).click();
     //Eye icon leads to inferred episodes details
-    await page.getByRole('row', { name: '106362783 Pregnancy MOU Visit, Rhesus test, ICD10 Pregnancy, Live Birth 2016-10-04 2017-03-13 Live Birth 2017-03-13 Live Birth' }).getByRole('link').click();
+    const firstViewLinkLocator = page.locator('a.btn.btn-info.btn-elevate.btn-circle.btn-icon[data-original-title="View episode characteristics"]').first();
+    await firstViewLinkLocator.click();
+
 });

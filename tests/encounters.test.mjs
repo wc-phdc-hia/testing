@@ -10,6 +10,6 @@ test('encounters test', async ({ page }) => {
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.getByRole('link', { name: 'Encounters' }).click();
     //Eye icon leads to encounter details
-    await page.getByRole('row', { name: '106362783 2021-11-25 Facility 525 WARDX ' }).getByRole('link').first().click();
-
+    const viewDetailsLocator = page.locator('a.btn[data-original-title="View encounter details"]').first();
+    await viewDetailsLocator.click();
 });

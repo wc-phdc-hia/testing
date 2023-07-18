@@ -9,7 +9,7 @@ test('drugs test', async ({ page }) => {
     await page.getByRole('link', { name: '106362783' }).click();
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
-    await page.getByRole('link', { name: ' Drugs' }).click();
+    await page.locator('span.kt-menu__link-text:has-text("Drugs")').click();
     await page.waitForTimeout(3000);
     const elementLocator = page.locator('#filter-on');
     await elementLocator.waitFor({ state: 'visible' });

@@ -9,7 +9,7 @@ test('observation test', async ({ page }) => {
     await page.getByRole('link', { name: '106362783' }).click();
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
-    await page.getByRole('link', { name: ' Observations' }).click();
+    await page.locator('span.kt-menu__link-text:has-text("Observations")').click();
     await page.getByRole('heading', { name: 'Filter' }).click();
     await page.getByRole('button', { name: 'ON' }).click();
     await page.getByRole('treeitem', { name: 'Anthropometry' }).locator('span').nth(3).click();

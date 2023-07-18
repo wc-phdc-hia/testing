@@ -10,7 +10,7 @@ test('demo test', async ({ page }) => {
     await page.getByRole('link', { name: '106362783' }).click();
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
-    await page.getByRole('link', { name: ' Inferred Episodes' }).click();
+    await page.locator('span.kt-menu__link-text:has-text("Inferred Episodes")').click();
     //Eye icon leads to inferred episodes details
     const firstViewLinkLocator = page.locator('a.btn.btn-info.btn-elevate.btn-circle.btn-icon[data-original-title="View episode characteristics"]').first();
     await firstViewLinkLocator.click();

@@ -9,7 +9,7 @@ test('admin test', async ({ page }) => {
     await page.getByRole('link', { name: '106362783' }).click();
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
-    await page.getByRole('link', { name: ' Patient Admin' }).click();
+    await page.locator('span.kt-menu__link-text:has-text("Patient Admin")').click();
     await page.getByPlaceholder('Search Folder').click();
     //selecting and editing a patient that was added on SPV
     await page.getByPlaceholder('Search Folder').fill('IHP5473565');
@@ -17,7 +17,7 @@ test('admin test', async ({ page }) => {
     await page.getByRole('link', { name: 'IHP5473565' }).click();
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
-    await page.getByRole('link', { name: ' Patient Admin' }).click();
+    await page.locator('span.kt-menu__link-text:has-text("Patient Admin")').click();
     await page.getByRole('button', { name: 'Actions ' }).click();
     await page.getByRole('link', { name: 'Edit' }).click();
     await page.getByLabel('First Name').click();

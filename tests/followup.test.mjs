@@ -9,7 +9,7 @@ test('followup test', async ({ page }) => {
     await page.getByRole('link', { name: '106362783' }).click();
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.locator('#kt_aside_toggler').click();
-    await page.getByRole('link', { name: ' Follow Ups' }).click();
+    await page.locator('span.kt-menu__link-text:has-text("Follow Ups")').click();
     await page.getByRole('button', { name: 'Create Follow Up ' }).click();
     await page.getByRole('link', { name: 'Create General Note' }).click();
     await page.getByRole('combobox', { name: 'Health condition' }).selectOption('Pregnancy');

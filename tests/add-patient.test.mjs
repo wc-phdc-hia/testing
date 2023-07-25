@@ -41,18 +41,26 @@ test('spv-patient', async () => {
 test('enable facilities', async () => {
 
     await page.locator('#kt_aside_toggler').click();
+    await page.waitForTimeout(3000);
     await page.locator('span.kt-menu__link-text:has-text("Settings")').click();
     await page.getByRole('link', { name: 'List OpenIHP Users' }).click();
-    const editLink = await page.locator('a[href="/User/Edit?id=21037"]');
-    await editLink.click();
-    await page.getByRole('button', { name: 'Assign Facilities' }).click();
-    const checkboxElement = await page.locator('.fancytree-checkbox').first();
-
-    // Checking if the checkbox is checked
-    const isCheckboxChecked = await checkboxElement.getAttribute('aria-selected');
-    if (isCheckboxChecked !== 'false') {
-        await checkboxElement.click();
+    await page.waitForTimeout(3000);
+    const editLink = await page.locator('a[href="/User/Edit?id=21037"]').click();
+    // await page.waitForTimeout(3000);
+    // await editLink.click();
+    await page.getByRole('button', { name: 'Assign Facilities' }).click(); 
+    const checkbox = await page.locator('#facilityTree span.fancytree-checkbox').nth(0);
+    await page.waitForTimeout(5000);
+    // Check if the checkbox is currently selected
+    const Checked = await checkbox.isChecked();
+    //console.log(isChecked);
+    
+    if (Checked === false) {
+        //Click the checkbox
+        await page.waitForTimeout(5000);
+        await checkbox.click();
     }
+    await page.waitForTimeout(5000);
     await page.getByRole('button', { name: 'Confirm' }).click();
     await page.getByRole('button', { name: 'Save User' }).click();
     await page.getByRole('button', { name: 'Accept and Continue' }).click();

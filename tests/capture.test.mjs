@@ -125,8 +125,9 @@ test('encounter2 page test', async () => {
 
 test('diagnosis test', async () => {
     //Diagnoses page opens, capture any diagnosis
-    await page.getByRole('treeitem', { name: 'Episode Linked' }).locator('i').first().click();    
-    await page.locator('#A15\\.0 i.jstree-icon.jstree-checkbox').click();
+    await page.getByRole('treeitem', { name: 'Episode Linked' }).locator('i').first().click(); 
+    await page.waitForTimeout(3000);   
+    await page.locator('#B20\\.0 i.jstree-icon.jstree-checkbox').click();
     await page.getByRole('button', { name: 'Next' }).click();
 });
 

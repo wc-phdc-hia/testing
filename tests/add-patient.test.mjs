@@ -19,7 +19,7 @@ test('spv-patient', async () => {
     await page.getByRole('button', { name: 'Search' }).click();
 
     // Check if patient exists by inspecting the folder number
-    const folderNumber = 'IHP5473565'; // Specify the folder number to check
+    const folderNumber = 'IHP5473565'; 
     const patientLocator = page.locator(`span[data-original="${folderNumber}"]`);
     const patientCount = await patientLocator.count();
 
@@ -32,8 +32,6 @@ test('spv-patient', async () => {
         await page.getByRole('combobox', { name: 'Sex' }).selectOption('102');
         await page.getByLabel('ID Number').click();
         await page.getByLabel('ID Number').fill('123456789');
-        await page.getByLabel('Phone number').click();
-        await page.getByLabel('Phone number').fill('987654321');
         await page.getByRole('button', { name: 'Submit' }).click();
     }
 });
@@ -41,33 +39,36 @@ test('spv-patient', async () => {
 test('enable facilities', async () => {
 
     await page.locator('#kt_aside_toggler').click();
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(2000);
     await page.locator('span.kt-menu__link-text:has-text("Settings")').click();
     await page.getByRole('link', { name: 'List OpenIHP Users' }).click();
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(1000);
     const editLink = await page.locator('a[href="/User/Edit?id=21037"]').click();
-    // await page.waitForTimeout(3000);
-    // await editLink.click();
+    
+    await page.locator('label').filter({ hasText: 'Data Capturer' }).locator('span').click();
+    const dropdownLocator = await page.waitForSelector("#ClinicianCategoryId.form-control");
+    await dropdownLocator.selectOption('2');
+
+    
     await page.getByRole('button', { name: 'Assign Facilities' }).click(); 
     const checkbox = await page.locator('#facilityTree span.fancytree-checkbox').nth(0);
-    await page.waitForTimeout(5000);
-    // Check if the checkbox is currently selected
-    const Checked = await checkbox.isChecked();
-    //console.log(isChecked);
-    
-    if (Checked === false) {
-        //Click the checkbox
-        await page.waitForTimeout(5000);
-        await checkbox.click();
+    const element = await page.waitForSelector('li.fancytree-lastsib');
+
+    if (element) {
+        const ariaSelectedValue = await page.evaluate(element => {
+        return element.getAttribute('aria-selected')}, element);
+
+        if (ariaSelectedValue === 'false') {
+            await checkbox.click();
+        }
     }
-    await page.waitForTimeout(5000);
+
     await page.getByRole('button', { name: 'Confirm' }).click();
     await page.getByRole('button', { name: 'Save User' }).click();
     await page.getByRole('button', { name: 'Accept and Continue' }).click();
 
 
 });
-
 
 test('first capture', async () => {
 

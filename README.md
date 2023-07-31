@@ -28,6 +28,18 @@ To run a test suite:
 npm run test
 ```
 
+To run a specific test file:
+
+```sh
+npx playwright test <name-of-test-file>
+```
+
+To run tests in headed state:
+
+```sh
+npm run test-h || npx playwright test <name-of-test-file> --headed
+```
+
 > **Note:** If you're asked to provide a firewall permission on first run, allow on local networks only.
 
 ### Dependencies (Windows)
@@ -56,7 +68,21 @@ In this order:
   ```sh
   git clone git@github.com:wc-phdc-hia/testing.git
   ```
+
+- To get the latest Playwright run:
   
+  ```sh
+  npm install -D @playwright/test@latest
+  ```
+
+- A package for setting environment variables:
+  
+  ```sh
+  npm install -D env-cmd
+  ```
+  
+>**Important:** Create a .env file in the root folder that will contain your local SPV username and password. i.e. USERNAME="username here", PASSWORD="password here"
+
 ## Resources
 
 [Playwright](https://playwright.dev/docs/intro)

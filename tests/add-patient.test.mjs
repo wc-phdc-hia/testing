@@ -38,13 +38,14 @@ test('spv-patient', async () => {
 
 test('enable facilities', async () => {
 
+    await page.waitForTimeout(2000);
     await page.locator('#kt_aside_toggler').click();
     await page.waitForTimeout(2000);
     await page.locator('span.kt-menu__link-text:has-text("Settings")').click();
     await page.getByRole('link', { name: 'List OpenIHP Users' }).click();
     await page.waitForTimeout(1000);
-    const editLink = await page.locator('a[href="/User/Edit?id=21037"]').click();
-    
+    await page.locator('a[href="/User/Edit?id=21037"]').click();
+
     await page.locator('label').filter({ hasText: 'Data Capturer' }).locator('span').click();
     const dropdownLocator = await page.waitForSelector("#ClinicianCategoryId.form-control");
     await dropdownLocator.selectOption('2');
@@ -103,7 +104,9 @@ test('first capture', async () => {
     await page.getByRole('link', { name: 'Facility 111' }).click();
     await page.locator('#Extension253-modal').getByRole('button', { name: 'Choose' }).click();
     await page.locator('#Extension254').click();
-    await page.getByRole('link', { name: '26' }).click();
+    await page.getByRole('combobox').nth(2).selectOption('2043');
+    await page.getByRole('combobox').nth(1).selectOption('11');
+    await page.getByRole('link', { name: '31' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('link', { name: 'Summary' }).click();

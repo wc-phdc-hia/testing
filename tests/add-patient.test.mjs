@@ -36,21 +36,19 @@ test('spv-patient', async () => {
     }
 });
 
+// Enabling all facilities
 test('enable facilities', async () => {
 
     await page.waitForTimeout(2000);
     await page.locator('#kt_aside_toggler').click();
-    await page.waitForTimeout(2000);
     await page.locator('span.kt-menu__link-text:has-text("Settings")').click();
     await page.getByRole('link', { name: 'List OpenIHP Users' }).click();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
+    //Edit default user
     await page.locator('a[href="/User/Edit?id=21037"]').click();
-
     await page.locator('label').filter({ hasText: 'Data Capturer' }).locator('span').click();
     const dropdownLocator = await page.waitForSelector("#ClinicianCategoryId.form-control");
     await dropdownLocator.selectOption('2');
-
-    
     await page.getByRole('button', { name: 'Assign Facilities' }).click(); 
     const checkbox = await page.locator('#facilityTree span.fancytree-checkbox').nth(0);
     const element = await page.waitForSelector('li.fancytree-lastsib');
@@ -71,6 +69,7 @@ test('enable facilities', async () => {
 
 });
 
+// Capture some data
 test('first capture', async () => {
 
     await page.getByRole('tab', { name: 'Search' }).click();

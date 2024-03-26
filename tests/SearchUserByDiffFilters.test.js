@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+
+// import { test } from '@playwright/test';
 const { test } = require('playwright/test');
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -12,9 +14,11 @@ test.afterAll(async () => {
 });
  
 const SearchUserByDiffFiltersPage  = require('../playwright/pages/SearchUserByDiffFiltersPage');
+
 // This below test for Navigation to Users List  page and searching user by diff ways
 
-test('Search User By ', async ({}, testInfo) => {
+ // eslint-disable-next-line no-empty-pattern
+ test('Search User By ', async ({}, testInfo) => {
    
     // eslint-disable-next-line prettier/prettier
      

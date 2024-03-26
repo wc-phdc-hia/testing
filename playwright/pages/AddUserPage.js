@@ -1,7 +1,9 @@
 /* eslint-disable radix */
 /* eslint-disable no-useless-constructor */
 /* eslint-disable prettier/prettier */
+
 const UtilityMethods = require('../utilities/UtilityMethods');
+
 class AddUserPage extends UtilityMethods {
     constructor(page) {
         super(page);
@@ -69,7 +71,7 @@ class AddUserPage extends UtilityMethods {
 
         }
         else {
-            console.log('User Already Exists')
+            // console.log('User Already Exists')
         }
     }
 }

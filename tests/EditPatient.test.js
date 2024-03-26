@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+
+// import { test } from '@playwright/test';
+
 const { test } = require('playwright/test');
 
 let page;
@@ -16,8 +18,7 @@ const EditPatientPage  = require('../playwright/pages/EditPatientPage');
 
 // eslint-disable-next-line import/no-unresolved
 
-// This below test for adding new user
-
+// eslint-disable-next-line no-empty-pattern
 test('EditPatient test', async ({}, testInfo) => {
      
     // eslint-disable-next-line prettier/prettier

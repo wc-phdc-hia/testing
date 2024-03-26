@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+
+// import { test } from '@playwright/test';
 const { test } = require('playwright/test');
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -13,10 +15,9 @@ test.afterAll(async () => {
  
 const EditUserPage  = require('../playwright/pages/EditUserPage');
 
-
 // eslint-disable-next-line import/no-unresolved
  
-// This below test for Editing existing user
+// eslint-disable-next-line no-empty-pattern
 
 // eslint-disable-next-line no-empty-pattern
 test('EditUser test', async ({}, testInfo) => {

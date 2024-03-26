@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+
+// import { test } from '@playwright/test';
 const { test } = require('playwright/test');
+
 let page;
 
 test.beforeAll(async ({ browser }) => {

@@ -2,6 +2,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable prettier/prettier */
 const UtilityMethods = require('../utilities/UtilityMethods');
+
 class DeleteUserPage extends UtilityMethods {
     constructor(page) {
         super(page);

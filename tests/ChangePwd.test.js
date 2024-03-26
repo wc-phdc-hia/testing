@@ -1,6 +1,9 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+
+// import { test } from '@playwright/test';
+
 const { test } = require('playwright/test');
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -12,10 +15,12 @@ test.afterAll(async () => {
 });
  
 const ChangePwdPage  = require('../playwright/pages/ChangePwdPage');
+
 // eslint-disable-next-line import/no-unresolved
  
 // This below test for changing existing pwd
 
+// eslint-disable-next-line no-empty-pattern
 test('ChangePassword test', async ({}, testInfo) => {
     
     // eslint-disable-next-line prettier/prettier

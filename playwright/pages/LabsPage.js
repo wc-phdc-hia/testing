@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable prettier/prettier */
 const UtilityMethods = require('../utilities/UtilityMethods');
+
 class LabsPage extends UtilityMethods {
     constructor(page) {
         super(page);

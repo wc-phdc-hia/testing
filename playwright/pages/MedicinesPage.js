@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable prettier/prettier */
 const UtilityMethods = require('../utilities/UtilityMethods');
+
 class MedicinesPage extends UtilityMethods 
 {
     constructor(page) 
@@ -13,7 +14,7 @@ class MedicinesPage extends UtilityMethods
     
     async gotoMedicinesPage()
      { 
- //medicines page
+ // medicines page
  await this.goTo(process.env.PLAYWRIGHT_TARGET_URL);
  await this.click('#UnMaskedValue_SearchDetailsModel_ClinicomNumber');
  await this.locateFill('#UnMaskedValue_SearchDetailsModel_ClinicomNumber',process.env.PLAYWRIGHT_FOLDERNO);

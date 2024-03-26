@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+
+// import { test } from '@playwright/test';
 const { test } = require('playwright/test');
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -12,10 +14,10 @@ test.afterAll(async () => {
 });
  
 const DeleteUserPage  = require('../playwright/pages/DeleteUserPage');
-// eslint-disable-next-line import/no-unresolved
- 
-// This below test for Deleting existing user
 
+// eslint-disable-next-line import/no-unresolved
+
+ // eslint-disable-next-line no-empty-pattern
 test('DeleteUser test', async ({}, testInfo) => {
      
     // eslint-disable-next-line prettier/prettier

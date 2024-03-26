@@ -2,6 +2,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable prettier/prettier */
 const BasePage = require('../utilities/UtilityMethods');
+
 class AddPatientAttachmentPage extends BasePage {
     constructor(page) {
         super(page);

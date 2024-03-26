@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-//import { test } from '@playwright/test';
+// import { test } from '@playwright/test';
 const { test } = require('playwright/test');
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -16,12 +17,14 @@ const LabsPage  = require('../playwright/pages/LabsPage');
  
 // This below test for Navigation to labs page and checking basic functionality
 
-test('labs test', async () => {
+// eslint-disable-next-line no-empty-pattern
+test('labs test', async ({}, testInfo) => {
 
     
     // eslint-disable-next-line prettier/prettier
      
     const labsPage = new LabsPage(page);
     await labsPage.gotoLabsPage();
-     
+    const screenshot = await page.screenshot();
+    await testInfo.attach('Medicines test screenshot', { body: screenshot, contentType: 'image/png' }); 
 });

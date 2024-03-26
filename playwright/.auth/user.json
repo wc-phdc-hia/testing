@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "ASP.NET_SessionId",
+      "value": "r51xadnblps20epflr0d0lfu",
+      "domain": "openihp-qa-web.southafricanorth.cloudapp.azure.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__RequestVerificationToken",
+      "value": "g2psnwlD2Q8j3Zq9jgSANB26JmGuh3_mtnVd_Uk7p-db4fsgKgRfPHK3ZE-Qohi2pkuMupl8tX7NHwDhHYt-NUH1kkA1",
+      "domain": "openihp-qa-web.southafricanorth.cloudapp.azure.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": ".AspNet.ApplicationCookie",
+      "value": "amocUzALkf_gss8iryuUrsN2izTB3HgRIPX9SeWz4-3RvZPzZ2qsxg2Ld0f18dCTi8OInfafVbdBujppN8I4HQKoBGr9iIpz6TlmluR81rNckm097oOl_6WhvkWk5Mk4Z-V4rjxQBZBs7JiK05by3uT6X_65Qxg0NURhJKgm3tCTpGktW_bwsLp0keG9P1Sd3oA0P2v_VXA7xVRdSxFh5UIqpoKoQC-mU_4Z3MdeBvOe0KBeXE62kkcUlQuqEUKJa9b1l9oEF6UtBJfFORtRJhTBWC_HYcNFmqlH6U0emiSIb9A2fN2fA_X2h_FUlMjsLKmQJqqL7aH42C4mN0PbeLvnTdN72N_hbu8ngqTv9zV-1JFBuxPFN57fTp85qNYMKFGg4c1YGVRDV5k1TBylSh0luDg3gRUeS-UxgUY0TLqEnYCY6v7Ew1kdV3vhHeFMIr3znpJGDA97d3Xv1tTl2r5mC97RJHjQtBr8ncyZf-ts9P1d4nv3N8ANGKrG052-v5p1U72NbItldzwiLYSSdBRUhQ_3vGcj8TrzFcW4-L-cgxJoYy6nIxNvAyNO_9FEZlqBGzcUauVNpyVH_NgOxqwC1S4XTWh2qCYif6rG6fTPcKmBqaX4yLPLvC4S5Mf6wMs4NPSlcDudpbbifXKOR7yAesEpdspk7SL-34WmwxXdw-RNWKjAbchKrNXw66ScMCQiIbQoWIKN9xk3n3UYqkKT3b6NXuOFEFzCB1Dpay6kE2Xge8BS0wM-iOcH51n6RHv3JscLTHXErmSnhe2NCRiOMNHcmNM2HPW620lRNfBTswjRxn-iDxll7arCU72IM6x8sBi8cbE78BrZLFppfvq8ZX6_xV9CyFbpjK_U8gSE5NpJPUgm5lSgKEtUpWyKGZbZVyaO3-qnwfCtsNb_A8fLHfnziuyc3VRXsB_LmoOFjBuNPQ-kgpq1fSgZU0POfiGZeAXjZG_ml9Xkv8VqltXhs6291km1W1zwP5ol-UH7gzRY9BM2gmRR688ZxwNUqSoPK046gFRyEbA0SdT3EhJjcgzLKHsZAbmt_0JHjk6FcVSaoJSsE9gYrPOCcQ39pQRIyuExzmsSo9KXJxGzseOdLceGj-c3dQ93nICqStJaA2c5sWiwfoW5b5M0qS99fts_z6epHdkaYqALknRpBrZNn4V7er3XWNbQIT2NkxY2YMIroeDWQVgNNiBLjYqUFH3vIXB48pWQzNZkXHBxMC_TQgUkd5OI5qfV3i2dcL3z8U5kUTgHqDTJN55Jgzmzp4SbfVIDEJBicZX_2QfFAwxuEqOXMN2zFPqe10FbTfTTjeoue421ZWSns3iOieM600piBcnMqz51lM61cLNy9d3hMz0pTB8rma0ByOZmUQ-hvhhKJsnInD3f7q-LOT53OYTQkmgqNEWdMuCDMCTXK4r2vzGjT51bSXuLYoZ1d-2Pk8tlG5PQIjck7u8rg9ELDwfBOnkLF_-BIxme-0otWt-L1tiFg7ORlywGaIXekBai5DCv_eMf3DUgwaS6f-9EMR9zpFIZlmXa5QO2XsPPCdmynNkPOkvycW5YmZZkz-sN5imVDaUgXGMx2jYIXB2mxZByQhSRA7ILI0MiYGnTQAVb2xxyhCMQl99TDN_jnLW9GoQKpZUP1ESAfjp8YN_Z6pZS7Q8V4e1hf0qs84RW4VQW5wN8ZWuX6sYfC_i8YIHkhWdqTORPU8_w7ZU7h6vMOTrAl1aJQZwz_MQO4NOFswruvauTiVzBWd7LJgZiXTANy1rc3TCcbiJP20VG11rnmZvlpnL6bbk2NiWez3YLkwDxcOdfEuz8REwYqTRKfkc5dBlpUdWJ1ez8bJloKg7l-eI0c0Xw-_sjsTXey3r0UWnJnueq9XakhUa5TWtBV8x-yB3EFC7MygBnpDxZBTBOYy2IduZ0pIDsEFZ5ack9do4NAXs4a_klsBYC5CsB8KNaUB7kuEGZh2CQdthY1o-QYO3rx9Up2n_5MGQBrzvb_kztyna0I5WGbgqXOOGJbnhHNzlFZjxW9MYWTojV8DYmFZDM7hzyfEAHd_fDl24cBonOt1Xuhb34SVx84Xfzj33kr4UkBUcYcLmE4TFnU4rio8qzjqdoeJe-BWjLSaNCu6dOlkiBklbHOJUKRTWX8lWnys9QIRCan7L3yR74fbT4zST72aWMmxTEnN1dbqYl22dNSzYRKnN1GE3XfjK-Iqk_jM9KOtITnmxoOazwU2slmgOk11jQku0Rq6y-RNFcytcE8zCZK6hsTKbYCpohgV0Ismd9KkCle4TmYxm6etUKDED33Q",
+      "domain": "openihp-qa-web.southafricanorth.cloudapp.azure.com",
+      "path": "/",
+      "expires": 1711533819.370802,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "http://openihp-qa-web.southafricanorth.cloudapp.azure.com:8390",
+      "localStorage": [
+        {
+          "name": "userLoginType",
+          "value": "SelectedUserTypeId1"
+        }
+      ]
+    }
+  ]
+}

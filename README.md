@@ -3,6 +3,8 @@
 - [Getting started](#getting-started)
   - [Dependencies (Windows)](#dependencies-windows)
 - [Resources](#resources)
+- [Testing](#testing)
+  - [Regression test](#regression-test)
   - [Setting up SSH for Github](#setting-up-ssh-for-github)
 - [Visual Studio Code plugins](#visual-studio-code-plugins)
 
@@ -26,6 +28,18 @@ To run a test suite:
 
 ```sh
 npm run test
+```
+
+To run a specific test file:
+
+```sh
+npx playwright test <name-of-test-file>
+```
+
+To run tests in headed state:
+
+```sh
+npm run test-h || npx playwright test <name-of-test-file> --headed
 ```
 
 > **Note:** If you're asked to provide a firewall permission on first run, allow on local networks only.
@@ -56,10 +70,38 @@ In this order:
   ```sh
   git clone git@github.com:wc-phdc-hia/testing.git
   ```
+
+- To get the latest Playwright run:
   
+  ```sh
+  npm install -D @playwright/test@latest
+  ```
+
+- A package for setting environment variables:
+  
+  ```sh
+  npm install -D env-cmd
+  ```
+  
+>**Important:** Create a .env file in the root folder that will contain your local SPV username and password. i.e. USERNAME="username here", PASSWORD="password here"
+
 ## Resources
 
 [Playwright](https://playwright.dev/docs/intro)
+
+## Testing
+
+End to end tests use a library called [Playwright](https://playwright.dev/).
+To run a test suite run `npm run playwright-tests` or `npx playwright test <name-of-test-file>` to run a specific test file.
+
+### Regression test
+
+ 
+Steps
+Run below scripts one by one
+  "playwright-tests-search": "npx playwright test Search.test.js --project=chromium --headed",
+  "playwright-tests-labs": "npx playwright  test labs.test.js --project=chromium --headed",
+    
 
 ### Setting up SSH for Github
 
@@ -76,3 +118,4 @@ Install the following plugins, either from the plugin panel on the activity bar 
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [markdown all in one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+

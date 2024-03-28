@@ -30,4 +30,4 @@ class DeletePatientViaPatientAdminPage extends UtilityMethods {
     await this.page.waitForTimeout(2000);
   }
 }
- export default DeletePatientViaPatientAdminPage;
+export default DeletePatientViaPatientAdminPage;

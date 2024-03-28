@@ -1,4 +1,4 @@
-import  UtilityMethods from '../utilities/UtilityMethods.mjs';
+import UtilityMethods from "../utilities/UtilityMethods.mjs";
 
 export class ChangePwdPage extends UtilityMethods {
   constructor(page) {
@@ -33,4 +33,4 @@ export class ChangePwdPage extends UtilityMethods {
     await this.clickButtonByRoleAndName("button", "Change Password");
   }
 }
- 
+export default ChangePwdPage;

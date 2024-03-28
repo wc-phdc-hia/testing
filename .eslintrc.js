@@ -9,7 +9,7 @@ module.exports = {
       version: "27",
     },
   },
-  root: '',
+  root: true,
   extends: ["eslint:recommended", "airbnb", "prettier"],
   plugins: ["prettier"],
   parser: "@babel/eslint-parser",

@@ -51,4 +51,4 @@ class LoginAfterResetPwdPage extends UtilityMethods {
     await this.page.waitForTimeout(2000);
   }
 }
- export default LoginAfterResetPwdPage;
+export default LoginAfterResetPwdPage;

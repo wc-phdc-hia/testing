@@ -1,6 +1,6 @@
-  import { test } from '@playwright/test';
+import { test } from "@playwright/test";
 
- 
+import DeletePatientPage from "../playwright/pages/DeletePatientPage.mjs";
 
 let page;
 
@@ -11,8 +11,6 @@ test.beforeAll(async ({ browser }) => {
 test.afterAll(async () => {
   await page.close();
 });
-
-import DeletePatientPage from "../playwright/pages/DeletePatientPage.mjs";
 
 // eslint-disable-next-line no-empty-pattern
 test("DeletePatient test", async ({}, testInfo) => {

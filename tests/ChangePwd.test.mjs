@@ -1,5 +1,7 @@
 import { test } from "@playwright/test";
 
+import { ChangePwdPage } from "../playwright/pages/ChangePwdPage.mjs";
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -9,8 +11,6 @@ test.beforeAll(async ({ browser }) => {
 test.afterAll(async () => {
   await page.close();
 });
-
-import {ChangePwdPage} from "../playwright/pages/ChangePwdPage.mjs";
 
 // eslint-disable-next-line no-empty-pattern
 test("ChangePassword test", async ({}, testInfo) => {

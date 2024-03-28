@@ -1,5 +1,7 @@
 import { test } from "playwright/test";
 
+import SearchUserByDiffFiltersPage from "../playwright/pages/SearchUserByDiffFiltersPage.mjs";
+
 let page;
 
 test.beforeAll(async ({ browser }) => {
@@ -9,8 +11,6 @@ test.beforeAll(async ({ browser }) => {
 test.afterAll(async () => {
   await page.close();
 });
-
-import SearchUserByDiffFiltersPage from "../playwright/pages/SearchUserByDiffFiltersPage.mjs";
 
 // This below test for Navigation to Users List  page and searching user by diff ways
 

@@ -43,8 +43,7 @@ class LabsPage extends UtilityMethods {
     await this.page.waitForTimeout(3000);
     await this.clickButtonByRoleAndName("button", "BY DATE");
     await this.click("#pivot-off");
-    
   }
 }
 
- export default LabsPage;
+export default LabsPage;

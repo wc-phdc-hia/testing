@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "anything": "ls",
-    "codegen": "playwright codegen localhost:5380/",
     "test": "env-cmd playwright test",
     "test-h": "env-cmd playwright test --headed",
-    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint:eslint": "eslint --ext .js,.jsx,.mjs,.ts,.tsx .",
+    "fix:eslint": "eslint --fix --ext .js,.jsx,.mjs,.ts,.tsx .",
     "playwright-tests-search": "env-cmd playwright test search.test.mjs",
     "playwright-tests-labs": "env-cmd playwright test labs.test.mjs",
     "playwright-tests-Medicines": "env-cmd playwright test Medicines.test.mjs",

@@ -92,7 +92,7 @@ In this order:
 
 Prerequisite
 
-- All values in .env file from should not be empty.
+- All values in .env file  should not be empty.
 Steps
 Run below scripts one by one
 

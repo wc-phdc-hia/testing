@@ -1,5 +1,4 @@
 import { expect } from "@playwright/test";
- 
 
 class UtilityMethods {
   constructor(page) {

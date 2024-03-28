@@ -1,4 +1,6 @@
-import { test }  from "playwright/test";
+import { test } from "playwright/test";
+
+import LabsPage from "../playwright/pages/LabsPage.mjs";
 
 let page;
 
@@ -9,8 +11,6 @@ test.beforeAll(async ({ browser }) => {
 test.afterAll(async () => {
   await page.close();
 });
-
-import LabsPage from "../playwright/pages/LabsPage.mjs";
 
 // eslint-disable-next-line no-empty-pattern
 test("labs test", async ({}, testInfo) => {

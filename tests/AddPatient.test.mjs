@@ -10,7 +10,7 @@ test.afterAll(async () => {
   await page.close();
 });
 
-const AddNewPatientPage = require("../playwright/pages/AddNewPatientPage");
+const AddNewPatientPage = require("../playwright/pages/AddNewPatientPage.mjs");
 
 // eslint-disable-next-line no-empty-pattern
 test("AddNewPatient test", async ({}, testInfo) => {

@@ -26,4 +26,4 @@ class FollowUpPage extends UtilityMethods {
   }
 }
 
- export default FollowUpPage;
+export default FollowUpPage;

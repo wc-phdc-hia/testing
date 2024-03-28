@@ -1,4 +1,4 @@
-import  UtilityMethods from '../utilities/UtilityMethods.mjs';
+import UtilityMethods from "../utilities/UtilityMethods.mjs";
 
 class AddUserPage extends UtilityMethods {
   constructor(page) {

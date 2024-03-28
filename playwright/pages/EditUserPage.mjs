@@ -41,4 +41,4 @@ class EditUserPage extends UtilityMethods {
     await this.click("#saveUser");
   }
 }
- export default EditUserPage;
+export default EditUserPage;

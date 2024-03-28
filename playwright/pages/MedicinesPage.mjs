@@ -42,4 +42,4 @@ class MedicinesPage extends UtilityMethods {
   }
 }
 
- export default MedicinesPage;
+export default MedicinesPage;

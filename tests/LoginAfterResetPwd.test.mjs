@@ -1,4 +1,6 @@
-import { test }from "playwright/test";
+import { test } from "playwright/test";
+
+import LoginAfterResetPwdPage from "../playwright/pages/LoginAfterResetPwdPage.mjs";
 
 let page;
 
@@ -9,8 +11,6 @@ test.beforeAll(async ({ browser }) => {
 test.afterAll(async () => {
   await page.close();
 });
-
-import LoginAfterResetPwdPage from "../playwright/pages/LoginAfterResetPwdPage.mjs";
 
 // eslint-disable-next-line no-empty-pattern
 test("LoginAfterResetPwd test", async ({}, testInfo) => {

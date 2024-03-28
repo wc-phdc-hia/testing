@@ -1,4 +1,4 @@
-import UtilityMethods  from "../utilities/UtilityMethods.mjs";
+import UtilityMethods from "../utilities/UtilityMethods.mjs";
 
 class DeleteUserPage extends UtilityMethods {
   constructor(page) {
@@ -25,4 +25,4 @@ class DeleteUserPage extends UtilityMethods {
     await this.clickButtonByRoleAndName("button", "Delete User");
   }
 }
- export default DeleteUserPage;
+export default DeleteUserPage;

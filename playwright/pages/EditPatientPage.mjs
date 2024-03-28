@@ -89,4 +89,4 @@ class EditPatientPage extends UtilityMethods {
     await this.clickButtonByRoleAndName("button", "Submit");
   }
 }
- export  default EditPatientPage;
+export default EditPatientPage;

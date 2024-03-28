@@ -22,8 +22,11 @@ module.exports = {
     "prettier/prettier": ["error"],
     "no-use-before-define": ["error", { functions: false, classes: true }],
     "no-shadow": "off",
+    "no-console": 0,
     "no-await-in-loop": "off",
     "no-param-reassign": "off",
+    "no-useless-constructor": 0,
+    "no-return-await": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {

@@ -4,10 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "codegen": "playwright codegen wikipedia.org",
-    "test": "playwright test",
-    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+    "anything": "ls",
+    "test": "env-cmd playwright test",
+    "test-h": "env-cmd playwright test --headed",
+    "lint:eslint": "eslint --ext .js,.jsx,.mjs,.ts,.tsx .",
+    "fix:eslint": "eslint --fix --ext .js,.jsx,.mjs,.ts,.tsx .",
+    "playwright-tests-search": "env-cmd playwright test search.test.mjs",
+    "playwright-tests-labs": "env-cmd playwright test labs.test.mjs",
+    "playwright-tests-Medicines": "env-cmd playwright test Medicines.test.mjs",
+    "playwright-tests-AddUser": "env-cmd playwright test AddUser.test.mjs",
+    "playwright-tests-ChangePwd": "env-cmd playwright test ChangePwd.test.mjs",
+    "playwright-tests-DeletePatient": "env-cmd playwright test DeletePatient.test.mjs",
+    "playwright-tests-DeletePatientViaPatientAdmin": "env-cmd playwright test DeletePatientViaPatientAdmin.test.mjs",
+    "playwright-tests-DeleteUser": "env-cmd playwright test DeleteUser.test.mjs",
+    "playwright-tests-EditPatient": "env-cmd playwright test EditPatient.test.mjs",
+    "playwright-tests-EditUser": "env-cmd playwright test EditUser.test.mjs",
+    "playwright-tests-FollowUp": "env-cmd playwright test FollowUp.test.mjs",
+    "playwright-tests-LoginAfterResetPwd": "env-cmd playwright test LoginAfterResetPwd.test.mjs",
+    "playwright-tests-SearchUserByDiffFilters": "env-cmd playwright test SearchUserByDiffFilters.test.mjs"
+    
+     
   },
   "repository": {
     "type": "git",
@@ -23,13 +39,15 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "@playwright/test": "^1.20.0",
-    "cross-env": "^7.0.3",
+    "@playwright/test": "^1.40.0",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "playwright": "^1.20.0",
+    "playwright": "^1.35.1",
     "prettier": "^2.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }

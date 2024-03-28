@@ -3,7 +3,6 @@
 - [Getting started](#getting-started)
   - [Dependencies (Windows)](#dependencies-windows)
 - [Resources](#resources)
-- [Testing](#testing)
   - [Regression test](#regression-test)
   - [Setting up SSH for Github](#setting-up-ssh-for-github)
 - [Visual Studio Code plugins](#visual-studio-code-plugins)
@@ -89,19 +88,27 @@ In this order:
 
 [Playwright](https://playwright.dev/docs/intro)
 
-## Testing
-
-End to end tests use a library called [Playwright](https://playwright.dev/).
-To run a test suite run `npm run playwright-tests` or `npx playwright test <name-of-test-file>` to run a specific test file.
-
 ### Regression test
 
- 
+Prerequisite
+
+- All values in .env file from should not be empty.
 Steps
 Run below scripts one by one
-  "playwright-tests-search": "npx playwright test Search.test.js --project=chromium --headed",
-  "playwright-tests-labs": "npx playwright  test labs.test.js --project=chromium --headed",
-    
+
+- Run `npm run playwright-tests-search`
+- Run `npm run playwright-tests-labs`
+- Run `npm run playwright-tests-Medicines`,
+- Run `npm run playwright-tests-AddUser`,
+- Run `npm run playwright-tests-ChangePwd`,
+- Run `npm run playwright-tests-DeletePatient`,
+- Run `npm run playwright-tests-DeletePatientViaPatientAdmin`,
+- Run `npm run playwright-tests-EditUser`,
+- Run `npm run playwright-tests-EditPatient`,
+- Run `npm run playwright-tests-DeleteUser`,
+- Run `npm run playwright-tests-FollowUp`,
+- Run `npm run playwright-tests-LoginAfterResetPwd`,
+- Run `npm run playwright-tests-SearchUserByDiffFilters`
 
 ### Setting up SSH for Github
 

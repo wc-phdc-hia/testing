@@ -1,7 +1,5 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-return-await */
-/* eslint-disable prettier/prettier */
-// const { Page } = require('playwright');
+import { expect } from "@playwright/test";
+ 
 
 class UtilityMethods {
   constructor(page) {
@@ -11,7 +9,6 @@ class UtilityMethods {
   async goTo(url) {
     await this.page.goto(url);
   }
-
 
   async getTitle() {
     return await this.page.title();
@@ -36,11 +33,8 @@ class UtilityMethods {
   }
 
   async clickButtonByRoleAndName(role, name) {
-
     await this.page.getByRole(role, { name }).click();
   }
-
-
 
   async assertTextContent(selector, expectedText) {
     await this.page.waitForSelector(selector);
@@ -50,12 +44,12 @@ class UtilityMethods {
   }
 
   async SelectCheckbox(label, text, span) {
-    await this.page.locator(label)
+    await this.page
+      .locator(label)
       .filter({ hasText: text })
       .locator(span)
       .click();
   }
-
 
   async waitForElementByRole(role) {
     await this.page.getByRole(role).click();
@@ -73,7 +67,7 @@ class UtilityMethods {
 
   async getDivValue(mydiv) {
     await this.page.waitForSelector(mydiv); // Replace with the actual selector of your <div> element
-    const divValue = await this.page.$eval(mydiv, div => div.textContent);
+    const divValue = await this.page.$eval(mydiv, (div) => div.textContent);
     return divValue.trim(); // Trim to remove leading/trailing whitespace
   }
 
@@ -87,4 +81,4 @@ class UtilityMethods {
   // Add more common methods as needed
 }
 
-module.exports = UtilityMethods;
+export default UtilityMethods;

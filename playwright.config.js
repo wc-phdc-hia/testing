@@ -1,11 +1,4 @@
-// import { defineConfig } from "@playwright/test";
-
-// @ts-check
 const { devices } = require("@playwright/test");
-
-// export default defineConfig({
-//   fullyParallel: true,
-// });
 
 /**
  * Read environment variables from file.
@@ -58,22 +51,20 @@ const config = {
       testDir: "./tests",
       use: {
         ...devices["Desktop Chrome"],
-        launchOptions: {
-          slowMo: 50,
-        },
+
         storageState: "playwright/.auth/user.json",
       },
       dependencies: ["setup"],
     },
 
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-        storageState: "playwright/.auth/user.json",
-      },
-      dependencies: ["setup"],
-    },
+    // {
+    //   name: "firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //     storageState: "playwright/.auth/user.json",
+    //   },
+    //   dependencies: ["setup"],
+    // },
 
     /* {
       name: "webkit",

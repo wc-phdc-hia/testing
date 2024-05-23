@@ -1,24 +1,25 @@
-import { test } from "playwright/test";
+import { test, expect } from '@playwright/test';
+import { AddNewPatientPage } from '../playwright/pages/AddNewPatientPage';
 
-let page;
+test.describe('AddNewPatient Tests', () => {
+  let page;
+  let addNewPatientPage;
 
-test.beforeAll(async ({ browser }) => {
-  page = await browser.newPage();
-});
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    addNewPatientPage = new AddNewPatientPage(page);
+  });
 
-test.afterAll(async () => {
-  await page.close();
-});
+  test.afterAll(async () => {
+    await page.close();
+  });
 
-const AddNewPatientPage = require("../playwright/pages/AddNewPatientPage");
-
-// eslint-disable-next-line no-empty-pattern
-test("AddNewPatient test", async ({}, testInfo) => {
-  const addNewPatientPage = new AddNewPatientPage(page);
-  await addNewPatientPage.AddPatient();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("AddNewPatient test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+  test('AddNewPatient test', async ({}, testInfo) => {
+    await addNewPatientPage.AddPatient();
+    const screenshot = await page.screenshot();
+    await testInfo.attach('AddNewPatient test screenshot', {
+      body: screenshot,
+      contentType: 'image/png',
+    });
   });
 });

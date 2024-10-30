@@ -1,5 +1,4 @@
-import { test } from "@playwright/test";
-
+import { test, expect } from "@playwright/test";
 import SearchPage from "../playwright/pages/SearchPage.mjs";
 
 let page;
@@ -12,78 +11,96 @@ test.afterAll(async () => {
   await page.close();
 });
 
-// This below test for Navigation to Search page and searching user by diff ways
+test.describe("Search Page Tests", () => {
 
-// eslint-disable-next-line no-empty-pattern
-test("Search By Folder", async ({}, testInfo) => {
-  // eslint-disable-next-line prettier/prettier
+  test("Search By Folder", async ({}, testInfo) => {
+    const searchPage = new SearchPage(page);
 
-  const searchPage = new SearchPage(page);
+    await searchPage.searchbyFolder("exampleFolder");
+    
+    // Verify results for search by folder
+    await expect(page.locator("text=Folder: exampleFolder")).toBeVisible();
 
-  await searchPage.searchbyfolder();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("searchbyfolder test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+    const screenshot = await page.screenshot();
+    await testInfo.attach("searchbyFolder test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
-});
 
-// eslint-disable-next-line no-empty-pattern
-test("Search By IdNumber", async ({}, testInfo) => {
-  const searchPage = new SearchPage(page);
+  test("Search By IdNumber", async ({}, testInfo) => {
+    const searchPage = new SearchPage(page);
 
-  await searchPage.searchbyIdNumber();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("searchbyIdNumber test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+    await searchPage.searchbyIdNumber("12345");
+
+    // Verify results for search by ID number
+    await expect(page.locator("text=ID: 12345")).toBeVisible();
+
+    const screenshot = await page.screenshot();
+    await testInfo.attach("searchbyIdNumber test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
-});
 
-// eslint-disable-next-line no-empty-pattern
-test("Search By Surname", async ({}, testInfo) => {
-  const searchPage = new SearchPage(page);
+  test("Search By Surname", async ({}, testInfo) => {
+    const searchPage = new SearchPage(page);
 
-  await searchPage.searchbySurname();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("searchbySurname test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+    await searchPage.searchbySurname("Doe");
+
+    // Verify results for search by surname
+    await expect(page.locator("text=Surname: Doe")).toBeVisible();
+
+    const screenshot = await page.screenshot();
+    await testInfo.attach("searchbySurname test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
-});
 
-// eslint-disable-next-line no-empty-pattern
-test("Search By DOB", async ({}, testInfo) => {
-  const searchPage = new SearchPage(page);
+  test("Search By DOB", async ({}, testInfo) => {
+    const searchPage = new SearchPage(page);
 
-  await searchPage.searchbyDOB();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("searchbyDOB test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+    await searchPage.searchbyDOB("01/01/1990");
+
+    // Verify results for search by date of birth
+    await expect(page.locator("text=DOB: 01/01/1990")).toBeVisible();
+
+    const screenshot = await page.screenshot();
+    await testInfo.attach("searchbyDOB test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
-});
 
-// eslint-disable-next-line no-empty-pattern
-test("Search By quickSearch", async ({}, testInfo) => {
-  const searchPage = new SearchPage(page);
+  test("Quick Search", async ({}, testInfo) => {
+    const searchPage = new SearchPage(page);
 
-  await searchPage.quickSearch();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("quickSearch test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+    await searchPage.quickSearch("quick search term");
+
+    // Verify results for quick search
+    await expect(page.locator("text=Quick Search Result")).toBeVisible();
+
+    const screenshot = await page.screenshot();
+    await testInfo.attach("quickSearch test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
-});
 
-// eslint-disable-next-line no-empty-pattern
-test("Search By recentPatient", async ({}, testInfo) => {
-  const searchPage = new SearchPage(page);
+  test("Search By Recent Patient", async ({}, testInfo) => {
+    const searchPage = new SearchPage(page);
 
-  await searchPage.recentPatient();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("recentPatient test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+    await searchPage.recentPatient();
+
+    // Verify that recent patient details are displayed
+    await expect(page.locator("text=Recent Patient")).toBeVisible();
+
+    const screenshot = await page.screenshot();
+    await testInfo.attach("recentPatient test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
+
 });

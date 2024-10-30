@@ -1,6 +1,5 @@
-  import { test } from '@playwright/test';
-
- 
+import { test, expect } from '@playwright/test';
+import DeletePatientPage from "../playwright/pages/DeletePatientPage.mjs";
 
 let page;
 
@@ -12,15 +11,23 @@ test.afterAll(async () => {
   await page.close();
 });
 
-import DeletePatientPage from "../playwright/pages/DeletePatientPage.mjs";
+test.describe("Delete Patient Tests", () => {
 
-// eslint-disable-next-line no-empty-pattern
-test("DeletePatient test", async ({}, testInfo) => {
-  const deletepatientPage = new DeletePatientPage(page);
-  await deletepatientPage.DeletePatient();
-  const screenshot = await page.screenshot();
-  await testInfo.attach("DeletePatient test screenshot", {
-    body: screenshot,
-    contentType: "image/png",
+  test("Delete a Patient and verify deletion", async ({}, testInfo) => {
+    const deletePatientPage = new DeletePatientPage(page);
+    
+    // Delete the patient
+    await deletePatientPage.DeletePatient("patient123");
+
+    // Verify the patient no longer appears in the list
+    const patientRecord = page.locator("text=patient123");
+    await expect(patientRecord).toHaveCount(0);  // Expect no records for the deleted patient
+
+    // Take a screenshot after deletion for verification
+    const screenshot = await page.screenshot();
+    await testInfo.attach("DeletePatient test screenshot", {
+      body: screenshot,
+      contentType: "image/png",
+    });
   });
 });

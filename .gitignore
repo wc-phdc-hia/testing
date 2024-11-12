@@ -104,3 +104,8 @@ dist
 .tern-port
 test-results/
 playwright-report/
+
+#Auth file
+playwright/.auth
+
+.env

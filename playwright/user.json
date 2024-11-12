@@ -1,0 +1,25 @@
+{
+    "cookies": [
+      {
+        "name": "login",
+        "value": "force",
+        "domain": "http://openihp-qa-web.southafricanorth.cloudapp.azure.com:8390/",
+        "path": "/",
+        "expires": -1,
+        "httpOnly": false,
+        "secure": false,
+        "sameSite": "Lax"
+      }
+    ],
+    "origins": [
+      {
+        "origin": "http://openihp-qa-web.southafricanorth.cloudapp.azure.com:8390/",
+        "localStorage": [
+          {
+            "name": "_pouch_check_localstorage",
+            "value": "1"
+          }
+        ]
+      }
+    ]
+  }

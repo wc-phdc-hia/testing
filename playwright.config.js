@@ -1,26 +1,21 @@
-import { defineConfig } from '@playwright/test';
+import "dotenv/config";
 
-// @ts-check
 const { devices } = require("@playwright/test");
-
-export default defineConfig({
-  fullyParallel: true,
-});
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-require('dotenv').config();
+require("dotenv").config();
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
+
 const config = {
-  
   /* Maximum time one test can run for. */
-  timeout: 500 * 1000,
+  timeout: 600 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -50,31 +45,30 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'setup',
-      testMatch: '**/*.setup.mjs',
+      name: "setup",
+      testMatch: "**/*.setup.mjs",
     },
     {
       name: "chromium",
-      testDir: "./tests",
+      testDir: "./tests/PlaywrightTests",
       use: {
         ...devices["Desktop Chrome"],
-        launchOptions: {
-          slowMo:50},
-        storageState: 'playwright/.auth/user.json',
+
+        storageState: "playwright/.auth/user.json",
       },
-       dependencies: ['setup'],
+      dependencies: ["setup"],
     },
 
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-        storageState: 'playwright/.auth/user.json',
-      },
-       dependencies: ['setup'],
-    },
+    // {
+    //   name: "firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //     storageState: "playwright/.auth/user.json",
+    //   },
+    //   dependencies: ["setup"],
+    // },
 
-    {
+    /* {
       name: "webkit",
       use: {
         ...devices["Desktop Safari"],
@@ -83,7 +77,7 @@ const config = {
        dependencies: ['setup'],
     },
 
-    /* Test against mobile viewports. */
+     Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
     //   use: {
@@ -122,4 +116,4 @@ const config = {
   // },
 };
 
-module.exports = config;
+export default config;

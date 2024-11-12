@@ -38,9 +38,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "@playwright/test": "^1.48.2",
-    "env-cmd": "^10.1.0",
-    "eslint": "^8.11.0",
+    "@playwright/test": "^1.40.0",
+    "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",

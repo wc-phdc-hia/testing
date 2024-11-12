@@ -1,5 +1,5 @@
 module.exports = {
-  root : true,
+  root: true,
   env: {
     browser: true,
     node: true,
@@ -10,7 +10,6 @@ module.exports = {
       version: "27",
     },
   },
-  root: '',
   extends: ["eslint:recommended", "airbnb", "prettier"],
   plugins: ["prettier"],
   parser: "@babel/eslint-parser",

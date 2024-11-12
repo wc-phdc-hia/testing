@@ -1,6 +1,6 @@
 import UtilityMethods from "../utilities/UtilityMethods.mjs";
 
-class AddNewPatientPage extends UtilityMethods {
+export class AddNewPatientPage extends UtilityMethods {
   constructor(page) {
     super(page);
     // Define selectors or other properties specific to the labs page if needed
@@ -8,6 +8,7 @@ class AddNewPatientPage extends UtilityMethods {
 
   async AddPatient() {
     await this.goTo(process.env.PLAYWRIGHT_TARGET_URL);
+    await this.page.waitForSelector("#UnMaskedValue_SearchDetailsModel_ClinicomNumber", { state: 'visible' });
     await this.click("#UnMaskedValue_SearchDetailsModel_ClinicomNumber");
     await this.locateFill(
       "#UnMaskedValue_SearchDetailsModel_ClinicomNumber",

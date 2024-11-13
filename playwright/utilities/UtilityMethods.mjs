@@ -100,6 +100,22 @@ class UtilityMethods {
 		);
 	}
 
+	async selectOptionByRole(role, name, option) {
+        await this.page.getByRole(role, { name }).selectOption(option);
+    }
+
+    async fillByLabel(label, text) {
+        await this.page.getByLabel(label).fill(text);
+	}
+
+	async fillInputById(id, value) {
+		await this.page.fill(`#${id}`, value);
+	}
+
+	async clickElementById(id) {
+		await this.page.click(`#${id}`);
+	}
+	
 	// Add more common methods as needed
 }
 

@@ -50,7 +50,7 @@ const config = {
     },
     {
       name: "chromium",
-      testDir: "./tests/PlaywrightTests",
+      testDir: "./tests",
       use: {
         ...devices["Desktop Chrome"],
 

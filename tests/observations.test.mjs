@@ -1,17 +1,24 @@
-import { test } from '@playwright/test';
+import { test } from "@playwright/test";
+import ObservationsPage from "../playwright/pages/ObservationsPage.mjs";
 
-test('observation test', async ({ page }) => {
-    //Observations page
-    await page.goto('http://localhost:5380/Search');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_ClinicomNumber').click();
-    await page.locator('#UnMaskedValue_SearchDetailsModel_ClinicomNumber').fill('106362783');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_ClinicomNumber').press('Enter');
-    await page.getByRole('link', { name: '106362783' }).click();
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await page.locator('#kt_aside_toggler').click();
-    await page.locator('span.kt-menu__link-text:has-text("Observations")').click();
-    await page.getByRole('heading', { name: 'Filter' }).click();
-    await page.getByRole('button', { name: 'ON' }).click();
-    await page.getByRole('treeitem', { name: 'Anthropometry' }).locator('span').nth(3).click();
-    await page.getByRole('link', { name: 'Filter' }).click();
+let page;
+let observationsPage;
+
+test.beforeAll(async ({ browser }) => {
+  page = await browser.newPage();
+  observationsPage = new ObservationsPage(page);
+});
+
+test.afterAll(async () => {
+  await page.close();
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Observations test", async ({}, testInfo) => {
+  await observationsPage.Observations();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("Observations test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
 });

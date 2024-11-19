@@ -1,6 +1,5 @@
 import { test } from "playwright/test";
-
-import LabsPage from "../playwright/pages/LabsPage.mjs";
+import DemoModePage from "../playwright/pages/DemoModePage.mjs";
 
 let page;
 
@@ -13,11 +12,11 @@ test.afterAll(async () => {
 });
 
 // eslint-disable-next-line no-empty-pattern
-test("labs test", async ({}, testInfo) => {
-  const labsPage = new LabsPage(page);
-  await labsPage.gotoLabsPage();
+test("DemoMode test", async ({}, testInfo) => {
+  const demoModePage = new DemoModePage(page);
+  await demoModePage.DemoMode();
   const screenshot = await page.screenshot();
-  await testInfo.attach("Medicines test screenshot", {
+  await testInfo.attach("DemoMode test screenshot", {
     body: screenshot,
     contentType: "image/png",
   });

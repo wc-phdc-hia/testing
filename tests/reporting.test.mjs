@@ -1,12 +1,23 @@
-import { test } from '@playwright/test';
+import { test } from "@playwright/test";
+import ReportingPage from "../playwright/pages/ReportingPage.mjs";
 
-test('reporting test', async ({ page }) => {
-    
-    //reports
-    await page.goto('http://localhost:5380/Search');
-    await page.locator('#kt_aside_toggler').click();
-    await page.locator('span.kt-menu__link-text:has-text("Reports")').click();
-    await page.locator('#Cat7 > a').click();
-    await page.locator('#Cat9 > a').click();
-    await page.locator('#Cat38').getByRole('link').click();
+let page;
+
+test.beforeAll(async ({ browser }) => {
+  page = await browser.newPage();
+});
+
+test.afterAll(async () => {
+  await page.close();
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Reporting test", async ({}, testInfo) => {
+  const reportingPage = new ReportingPage(page);
+  await reportingPage.ReportingPage();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("Reporting test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
 });

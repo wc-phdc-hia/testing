@@ -1,12 +1,12 @@
 import { test } from "@playwright/test";
-import { ChangePwdPage } from "../playwright/pages/ChangePwdPage.mjs";
+import DeletePatientPage from "../playwright/pages/DeletePatientPage.mjs";
 
 let page;
-let changePwdPage;
+let deletePatientPage;
 
 test.beforeAll(async ({ browser }) => {
   page = await browser.newPage();
-  changePwdPage = new ChangePwdPage(page);
+  deletePatientPage = new DeletePatientPage(page);
 });
 
 test.afterAll(async () => {
@@ -14,10 +14,10 @@ test.afterAll(async () => {
 });
 
 // eslint-disable-next-line no-empty-pattern
-test("ChangePassword test", async ({}, testInfo) => {
-  await changePwdPage.ChangePwd();
+test("DeletePatient test", async ({}, testInfo) => {
+  await deletePatientPage.DeletePatient();
   const screenshot = await page.screenshot();
-  await testInfo.attach("ChangePassword test screenshot", {
+  await testInfo.attach("DeletePatient test screenshot", {
     body: screenshot,
     contentType: "image/png",
   });

@@ -1,11 +1,12 @@
 import { test } from "playwright/test";
-
-import LabsPage from "../playwright/pages/LabsPage.mjs";
+import DeleteUserPage from "../playwright/pages/DeleteUserPage.mjs";
 
 let page;
+let deleteUserPage;
 
 test.beforeAll(async ({ browser }) => {
   page = await browser.newPage();
+  deleteUserPage = new DeleteUserPage(page);
 });
 
 test.afterAll(async () => {
@@ -13,11 +14,10 @@ test.afterAll(async () => {
 });
 
 // eslint-disable-next-line no-empty-pattern
-test("labs test", async ({}, testInfo) => {
-  const labsPage = new LabsPage(page);
-  await labsPage.gotoLabsPage();
+test("DeleteUser test", async ({}, testInfo) => {
+  await deleteUserPage.DeleteUser();
   const screenshot = await page.screenshot();
-  await testInfo.attach("Medicines test screenshot", {
+  await testInfo.attach("DeleteUser test screenshot", {
     body: screenshot,
     contentType: "image/png",
   });

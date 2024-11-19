@@ -1,12 +1,6 @@
 import UtilityMethods from "../utilities/UtilityMethods.mjs";
 
 class FollowUpPage extends UtilityMethods {
-  constructor(page) {
-    super(page);
-    // Define selectors or other properties specific to the labs page if needed
-  }
-  // This below method for Redirecting the user to Medicines Page checking filters
-
   async gotoFollowUpPage() {
     await this.goTo(process.env.PLAYWRIGHT_TARGET_URL);
     await this.click("#UnMaskedValue_SearchDetailsModel_ClinicomNumber");
@@ -31,8 +25,7 @@ class FollowUpPage extends UtilityMethods {
     await this.fillInputById("Notes", "Testing");
     await this.clickButtonByRoleAndName("button", "Create");
     await this.page.waitForTimeout(1000);
-
   }
 }
 
- export default FollowUpPage;
+export default FollowUpPage;

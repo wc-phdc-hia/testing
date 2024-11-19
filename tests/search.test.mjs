@@ -1,36 +1,89 @@
-import { test } from '@playwright/test';
+import { test } from "@playwright/test";
 
-test('search test', async ({ page }) => {
-    
-    //folder search
-    await page.goto('http://localhost:5380/Search');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_ClinicomNumber').click();
-    await page.locator('#UnMaskedValue_SearchDetailsModel_ClinicomNumber').fill('106362783');
-    await page.getByRole('button', { name: 'Search' }).click();
-    await page.getByRole('link', { name: '106362783' }).click();
+import SearchPage from "../playwright/pages/SearchPage.mjs";
 
-    //ID number search
-    await page.goto('http://localhost:5380/Search');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_IdNumber').click();
-    await page.locator('#UnMaskedValue_SearchDetailsModel_IdNumber').fill('7205241063627');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_IdNumber').press('Enter');
+let page;
 
-    //first name search
-    await page.goto('http://localhost:5380/Search');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_FirstName').click();
-    await page.locator('#UnMaskedValue_SearchDetailsModel_FirstName').fill('Audrey L');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_FirstName').press('Enter');
+test.beforeAll(async ({ browser }) => {
+  page = await browser.newPage();
+});
 
-    //surname search
-    await page.goto('http://localhost:5380/Search');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_Surname').click();
-    await page.locator('#UnMaskedValue_SearchDetailsModel_Surname').fill('NTSHATHA');
-    await page.locator('#UnMaskedValue_SearchDetailsModel_Surname').press('Enter');
+test.afterAll(async () => {
+  await page.close();
+});
 
-    //date of birth search
-    await page.goto('http://localhost:5380/Search');
-    await page.getByRole('textbox', { name: 'yyyy-mm-dd' }).click();
-    await page.getByRole('textbox', { name: 'yyyy-mm-dd' }).fill('1972-05-24');
-    await page.getByRole('textbox', { name: 'yyyy-mm-dd' }).press('Enter');
-    await page.getByRole('button', { name: 'Search' }).click();
+// This below test for Navigation to Search page and searching user by diff ways
+
+// eslint-disable-next-line no-empty-pattern
+test("Search By Folder", async ({}, testInfo) => {
+  // eslint-disable-next-line prettier/prettier
+
+  const searchPage = new SearchPage(page);
+
+  await searchPage.searchbyfolder();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("searchbyfolder test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Search By IdNumber", async ({}, testInfo) => {
+  const searchPage = new SearchPage(page);
+
+  await searchPage.searchbyIdNumber();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("searchbyIdNumber test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Search By Surname", async ({}, testInfo) => {
+  const searchPage = new SearchPage(page);
+
+  await searchPage.searchbySurname();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("searchbySurname test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Search By DOB", async ({}, testInfo) => {
+  const searchPage = new SearchPage(page);
+
+  await searchPage.searchbyDOB();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("searchbyDOB test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Search By quickSearch", async ({}, testInfo) => {
+  const searchPage = new SearchPage(page);
+
+  await searchPage.quickSearch();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("quickSearch test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
+});
+
+// eslint-disable-next-line no-empty-pattern
+test("Search By recentPatient", async ({}, testInfo) => {
+  const searchPage = new SearchPage(page);
+
+  await searchPage.recentPatient();
+  const screenshot = await page.screenshot();
+  await testInfo.attach("recentPatient test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
 });

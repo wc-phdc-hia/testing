@@ -1,35 +1,63 @@
 {
-  "name": "testing",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "codegen": "playwright codegen wikipedia.org",
-    "test": "playwright test",
-    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wc-phdc-hia/testing.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wc-phdc-hia/testing/issues"
-  },
-  "homepage": "https://github.com/wc-phdc-hia/testing#readme",
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@playwright/test": "^1.20.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.11.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "playwright": "^1.20.0",
-    "prettier": "^2.6.0"
-  }
+	"name": "testing",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
+		"fix:eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+		"lint-tests:eslint": "cross-env eslint --ext .spec.js,.spec.jsx,.spec.ts,.spec.tsx,.test.js,.test.jsx,.test.ts,.test.tsx .",
+		"fix-tests:eslint": "cross-env eslint --fix --ext .spec.js,.spec.jsx,.spec.ts,.spec.tsx,.test.js,.test.jsx,.test.ts,.test.tsx .",
+		"playwright": "cross-env BASE_URL='https://playwright.dev/' npx playwright test",
+		"codegen": "playwright codegen localhost:5380/",
+		"playwright-test": "env-cmd playwright test",
+		"test-h": "env-cmd playwright test --headed",
+		"playwright-tests-AddNewPatient": "env-cmd playwright test tests/FrontendTests/playwright/tests/AddNewPatient.test.mjs",
+		"playwright-tests-DemoMode": "env-cmd playwright test tests/FrontendTests/playwright/tests/DemoMode.test.mjs",
+		"playwright-tests-CreateUser": "env-cmd playwright test CreateUser.test.mjs --headed",
+		"playwright-tests-Encounters": "env-cmd playwright test tests/FrontendTests/playwright/tests/Encounters.test.mjs",
+		"playwright-tests-followup": "env-cmd playwright test tests/FrontendTests/playwright/tests/followup.test.mjs",
+		"playwright-tests-Labs": "env-cmd playwright test tests/FrontendTests/playwright/tests/Labs.test.mjs",
+		"playwright-tests-Observations": "env-cmd playwright test tests/FrontendTests/playwright/tests/Observations.test.mjs",
+		"playwright-tests-Reporting": "env-cmd playwright test tests/FrontendTests/playwright/tests/Reporting.test.mjs",
+		"playwright-tests-search": "env-cmd playwright test tests/FrontendTests/playwright/tests/search.test.mjs",
+		"playwright-tests-EditUserPage": "env-cmd playwright test tests/FrontendTests/playwright/tests/EditUserPage.test.mjs --headed",
+		"playwright-tests-DeleteUser": "env-cmd playwright test tests/FrontendTests/playwright/tests/DeleteUser.test.mjs --headed",
+		"playwright-tests-ChangePassword": "env-cmd playwright test tests/FrontendTests/playwright/tests/ChangePassword.test.mjs --headed",
+		"playwright-tests-DeletePatient": "env-cmd playwright test tests/FrontendTests/playwright/tests/DeletePatient.test.mjs --headed",
+		"playwright-tests-DeletePatientViaPatientAdmin": "env-cmd playwright test tests/FrontendTests/playwright/tests/DeletePatientViaPatientAdmin.test.mjs",
+		"playwright-tests-EditPatient": "env-cmd playwright test tests/FrontendTests/playwright/tests/EditPatient.test.mjs --headed",
+		"playwright-tests-Medicines": "env-cmd playwright test tests/FrontendTests/playwright/tests/Medicines.test.mjs --headed",
+		"playwright-tests-Search": "env-cmd playwright test tests/FrontendTests/playwright/tests/Search.test.mjs",
+		"playwright-tests-SearchUserByDiffFilters": "env-cmd playwright test tests/FrontendTests/playwright/tests/SearchUserByDiffFilters.test.mjs",
+		"playwright-tests-LoginAfterResetPwd": "env-cmd playwright test tests/FrontendTests/playwright/tests/LoginAfterResetPwd.test.mjs --headed",
+		"playwright-tests-example": "env-cmd playwright test tests/FrontendTests/playwright/tests/example.test.mjs --headed"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wc-phdc-hia/testing.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/wc-phdc-hia/testing/issues"
+	},
+	"homepage": "https://github.com/wc-phdc-hia/testing#readme",
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.17.0",
+		"@babel/preset-env": "^7.16.11",
+		"@playwright/test": "^1.48.2",
+		"cross-env": "^7.0.3",
+		"env-cmd": "^10.1.0",
+		"eslint": "^8.22.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"playwright": "^1.35.1",
+		"prettier": "^2.6.0"
+	},
+	"dependencies": {
+		"dotenv": "^16.3.1"
+	}
 }

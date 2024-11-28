@@ -38,5 +38,6 @@ module.exports = {
       },
     ],
     "no-nested-ternary": "off",
+    "import/prefer-default-export": "off",
   },
 };

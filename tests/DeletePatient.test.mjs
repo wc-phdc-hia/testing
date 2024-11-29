@@ -1,21 +1,8 @@
 import { test } from "@playwright/test";
-import DeletePatientPage from "../playwright/pages/DeletePatientPage.mjs";
+import { DeletePatient } from "../playwright/Functions/DeletePatient.mjs";
 
-let page;
-let deletePatientPage;
-
-test.beforeAll(async ({ browser }) => {
-  page = await browser.newPage();
-  deletePatientPage = new DeletePatientPage(page);
-});
-
-test.afterAll(async () => {
-  await page.close();
-});
-
-// eslint-disable-next-line no-empty-pattern
-test("DeletePatient test", async ({}, testInfo) => {
-  await deletePatientPage.DeletePatient();
+test("Delete a patient", async ({ page }, testInfo) => {
+  await DeletePatient(page);
   const screenshot = await page.screenshot();
   await testInfo.attach("DeletePatient test screenshot", {
     body: screenshot,

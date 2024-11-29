@@ -1,21 +1,9 @@
 import { test } from "playwright/test";
 
-import EncountersPage from "../playwright/pages/EncountersPage.mjs";
+import { Encounters } from "../playwright/Functions/Encounters.mjs";
 
-let page;
-
-test.beforeAll(async ({ browser }) => {
-  page = await browser.newPage();
-});
-
-test.afterAll(async () => {
-  await page.close();
-});
-
-// eslint-disable-next-line no-empty-pattern
-test("EncountersPage test", async ({}, testInfo) => {
-  const encountersPage = new EncountersPage(page);
-  await encountersPage.EncountersPage();
+test("Encounters page test", async ({ page }, testInfo) => {
+  await Encounters(page);
   const screenshot = await page.screenshot();
   await testInfo.attach("EncountersPage test screenshot", {
     body: screenshot,

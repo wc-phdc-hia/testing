@@ -1,24 +1,22 @@
 import { test } from "playwright/test";
-import EditPatientPage from "../playwright/pages/EditPatientPage.mjs";
+import {
+  EditPatient,
+  EditPatientViaPatientAdmin,
+} from "../playwright/Functions/EditPatient.mjs";
 
-let page;
-let editPatientPage;
-
-test.beforeAll(async ({ browser }) => {
-  page = await browser.newPage();
-  editPatientPage = new EditPatientPage(page);
-});
-
-test.afterAll(async () => {
-  await page.close();
-});
-
-// eslint-disable-next-line no-empty-pattern
-test("EditPatient test", async ({}, testInfo) => {
-  await editPatientPage.EditPatient();
-  await editPatientPage.EditPatientViaPatientAdmin();
+test("Edit a patient", async ({ page }, testInfo) => {
+  await EditPatient(page);
   const screenshot = await page.screenshot();
   await testInfo.attach("EditPatient test screenshot", {
+    body: screenshot,
+    contentType: "image/png",
+  });
+});
+
+test("Edit a patient via patient admin", async ({ page }, testInfo) => {
+  await EditPatientViaPatientAdmin(page);
+  const screenshot = await page.screenshot();
+  await testInfo.attach("EditPatientViaPatientAdmin test screenshot", {
     body: screenshot,
     contentType: "image/png",
   });

@@ -1,28 +1,22 @@
 import { test } from "playwright/test";
 
-import SearchUserByDiffFiltersPage from "../playwright/pages/SearchUserByDiffFiltersPage.mjs";
-
-let page;
-
-test.beforeAll(async ({ browser }) => {
-  page = await browser.newPage();
-});
-
-test.afterAll(async () => {
-  await page.close();
-});
+import {
+  SearchByEmail,
+  SearchByFirstName,
+  SearchByLastLogin,
+  SearchByLastName,
+  SearchByType,
+  SearchByUserName,
+} from "../playwright/Functions/SearchUserByDiffFilters.mjs";
 
 // This below test for Navigation to Users List  page and searching user by diff ways
-
-// eslint-disable-next-line no-empty-pattern
-test("Search User By ", async ({}, testInfo) => {
-  const searchUserByDiffFiltersPage = new SearchUserByDiffFiltersPage(page);
-  await searchUserByDiffFiltersPage.SearchByUserName();
-  await searchUserByDiffFiltersPage.SearchByFirstName();
-  await searchUserByDiffFiltersPage.SearchByLastName();
-  await searchUserByDiffFiltersPage.SearchByEmail();
-  await searchUserByDiffFiltersPage.SearchByType();
-  await searchUserByDiffFiltersPage.SearchByLastLogin();
+test("Search User By ", async ({ page }, testInfo) => {
+  await SearchByUserName(page);
+  await SearchByFirstName(page);
+  await SearchByLastName(page);
+  await SearchByEmail(page);
+  await SearchByType(page);
+  await SearchByLastLogin(page);
   const screenshot = await page.screenshot();
   await testInfo.attach("Search User test screenshot", {
     body: screenshot,
